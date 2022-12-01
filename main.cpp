@@ -35,7 +35,7 @@ std::tuple<std::vector<int>, std::vector<double>, std::vector<int>> local_join_i
     std::vector<int> data1_result;
 
     for(const auto& k : keys1) {
-        p = std::find(keys2.begin(), keys2.end(), k);
+        auto p = std::find(keys2.begin(), keys2.end(), k);
         if (p != keys2.end()) {
             int index = p - keys2.begin();
             keys_result.push_back(*p);
@@ -66,26 +66,6 @@ std::tuple<std::vector<int>, std::vector<double>, std::vector<int>> local_join_i
 std::tuple<std::vector<int>, std::vector<double>, std::vector<int>> parallel_join_impl(
     std::vector<int> &keys1, std::vector<int> &keys2, std::vector<double> &data0, std::vector<int> &data1)
 {
-    // TODO Add your implementation here...
-    std::shared_ptr<int> keys1_buffer(new int[keys1.size()]);
-    std::shared_ptr<int> keys2_buffer(new int[keys2.size()]);
-    std::shared_ptr<double> data0_buffer(new int[keys2.size()]);
-    std::shared_ptr<int> data1_buffer(new int[keys2.size()]);
-
-    auto node_portion = get_node_portion(keys1.size(), num_pes, MPI_RANK);
-    
-    get_node_portion(int64_t total, int num_pes, int node_id)
-
-
-    alltoallv_int(&data1[0], data1.size(), 
-                keys1_buffer.get(), )
-    alltoallv_int(&data1[0], data1.size(), 
-                keys1_buffer.get(), )
-    alltoallv_int(&data1[0], data1.size(), 
-                keys1_buffer.get(), )
-    alltoallv_int(&data1[0], data1.size(), 
-                keys1_buffer.get(), )                                
-
     return local_join_impl(keys1, keys2, data0, data1);
 }
 
