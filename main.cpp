@@ -81,7 +81,7 @@ int main()
     std::vector<int> k2;
     std::vector<double> d1;
     std::vector<int> d2;
-    
+
     // Join keys
     std::vector<int> k1;
 
