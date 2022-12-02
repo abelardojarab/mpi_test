@@ -3,8 +3,8 @@
 #include <random>
 #include <algorithm>
 #include "unistd.h"
-#include "mpi.h"
-#include "helpers.hpp"
+#include <mpi.h>
+#include "helpers.cpp"
 
 int rank;
 int n_pes;
