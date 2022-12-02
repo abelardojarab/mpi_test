@@ -25,7 +25,7 @@ int n_pes;
  *  Resulting distributed output (key and data columns from the right table)
  */
 std::tuple<std::vector<int>, std::vector<double>, std::vector<int>> local_join_impl(
-    std::vector<int> &keys1, 
+    std::vector<int> &keys1,
     std::vector<int> &keys2, std::vector<double> &data0, std::vector<int> &data1)
 {
 
@@ -135,4 +135,5 @@ int main()
         printf("| %3s | %9s | %5s |\n", std::to_string(o_keys[i]).c_str(), std::to_string(o1[i]).c_str(), std::to_string(o2[i]).c_str());
     }
     MPI_Barrier(MPI_COMM_WORLD);
+    MPI_Finalize();
 }
